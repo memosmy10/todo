@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 
 import { getErrorMessage } from '../src/lib/errors';
+import { openPolicyPage } from '../src/lib/policies';
 import { supabase } from '../src/lib/supabase';
 import { colors, radii } from '../src/theme';
 
@@ -196,6 +197,15 @@ export default function LoginScreen() {
               </Pressable>
             </View>
             <Text style={styles.footnote}>Your account and tasks stay synced to your private workspace.</Text>
+            <View style={styles.policyLinks}>
+              <Pressable accessibilityRole="link" onPress={() => void openPolicyPage('privacy-policy.html')}>
+                <Text style={styles.policyLink}>Privacy policy</Text>
+              </Pressable>
+              <Text style={styles.policySeparator}>·</Text>
+              <Pressable accessibilityRole="link" onPress={() => void openPolicyPage('terms-of-service.html')}>
+                <Text style={styles.policyLink}>Terms of service</Text>
+              </Pressable>
+            </View>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -284,4 +294,7 @@ const styles = StyleSheet.create({
   modeText: { color: colors.muted, fontSize: 13 },
   modeLink: { color: colors.accentDark, fontSize: 13, fontWeight: '700' },
   footnote: { marginTop: 23, color: colors.muted, fontSize: 11, lineHeight: 16, textAlign: 'center' },
+  policyLinks: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 14 },
+  policyLink: { color: colors.accentDark, fontSize: 11, fontWeight: '600' },
+  policySeparator: { color: colors.muted, fontSize: 12 },
 });

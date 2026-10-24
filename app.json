@@ -12,7 +12,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.abbas.daylist",
+      "package": "com.memosmy.daylist",
       "adaptiveIcon": {
         "backgroundColor": "#315E52",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -25,6 +25,11 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3178ee15-8344-4ea3-a660-181461d5f528"
+      }
+    }
   }
 }

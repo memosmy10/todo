@@ -13,6 +13,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { getErrorMessage } from '../../src/lib/errors';
+import { openPolicyPage } from '../../src/lib/policies';
 import { supabase } from '../../src/lib/supabase';
 import { useAuth } from '../../src/providers/AuthProvider';
 import { useTasks } from '../../src/providers/TaskProvider';
@@ -229,6 +230,20 @@ export default function HomeScreen() {
             )}
           </Pressable>
           <Pressable
+            accessibilityRole="link"
+            onPress={() => void openPolicyPage('privacy-policy.html')}
+            style={styles.policyButton}
+          >
+            <Text style={styles.policyText}>Privacy policy</Text>
+          </Pressable>
+          <Pressable
+            accessibilityRole="link"
+            onPress={() => void openPolicyPage('account-deletion.html')}
+            style={styles.policyButton}
+          >
+            <Text style={styles.policyText}>Deletion help</Text>
+          </Pressable>
+          <Pressable
             accessibilityRole="button"
             accessibilityHint="Permanently remove your account and all tasks"
             disabled={accountBusy}
@@ -345,5 +360,7 @@ const styles = StyleSheet.create({
   signOutButton: { paddingHorizontal: 8, paddingVertical: 8 },
   signOutText: { color: colors.accentDark, fontSize: 12, fontWeight: '700' },
   deleteButton: { width: '100%', paddingTop: 12, borderTopWidth: 1, borderTopColor: colors.line },
+  policyButton: { paddingHorizontal: 8, paddingVertical: 8 },
+  policyText: { color: colors.accentDark, fontSize: 12, fontWeight: '600' },
   deleteText: { color: colors.danger, fontSize: 12, fontWeight: '600' },
 });
