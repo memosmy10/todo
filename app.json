@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Daylist",
-    "slug": "daylist",
+    "slug": "todo",
     "scheme": "daylist",
     "description": "A calm, simple place to plan your tasks.",
     "version": "1.0.0",
