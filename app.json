@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "todo",
-    "slug": "todo",
+    "name": "Daylist",
+    "slug": "daylist",
+    "scheme": "daylist",
+    "description": "A calm, simple place to plan your tasks.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,16 +12,19 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.abbas.daylist",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#315E52",
         "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
