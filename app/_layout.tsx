@@ -20,6 +20,8 @@ export default function RootLayout() {
           >
             <Stack.Screen name="index" />
             <Stack.Screen name="login" />
+            <Stack.Screen name="create-account" />
+            <Stack.Screen name="auth/callback" />
             <Stack.Screen name="(tabs)" />
           </Stack>
         </TaskProvider>

@@ -59,7 +59,7 @@ export default function IndexRoute() {
     );
   }
 
-  return <Redirect href={session ? '/(tabs)' : '/login'} />;
+  return <Redirect href={session ? '/(tabs)' : '/create-account'} />;
 }
 
 const styles = StyleSheet.create({

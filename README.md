@@ -18,7 +18,7 @@ Requirements: Node.js 22 or later and npm.
    ```
 
    Replace the example values using the Supabase project's Connect page. These values are included in the app bundle; never put a Supabase service-role key in `.env` or an `EXPO_PUBLIC_` variable.
-4. Configure Supabase Authentication email verification and email settings.
+4. Configure Supabase Authentication email verification and email settings. In **Authentication → URL Configuration → Redirect URLs**, allow `daylist://auth/callback`. Keep **Confirm email** enabled, and ensure the confirmation email template uses Supabase's confirmation URL so the configured redirect is honored. The native sign-up flow uses PKCE: create the account in Daylist and open its email confirmation on the same device, which must have the installed Daylist build. Expo Go does not have the app's stable `daylist://` scheme; use an EAS development/preview build to test real email confirmation.
 5. Run `npm install`, then `npm start`. Press `a` for an Android emulator or scan the QR code with Expo Go. With missing Supabase settings, the app shows setup instructions instead of pretending authentication works.
 
 ## Deploy account deletion
@@ -56,6 +56,8 @@ Before publishing, replace every `[REPLACE ...]` or bracketed placeholder, confi
 Add `EXPO_PUBLIC_WEBSITE_URL` with the full Vercel production URL (for example, `https://your-project.vercel.app/`) to the **Production environment variables of the EAS app project**. This is a public URL, not a secret. Rebuild the app after adding it so in-app Privacy and Deletion links open the Vercel site. Add the same URL to your local `.env` only if you want the links to work during local testing. Do not overwrite or publish your existing `.env`.
 
 The app already links to the privacy policy and terms on the sign-in screen, and to privacy/deletion help in the signed-in Home screen.
+
+The landing-page **Get started** button opens [`docs/create-account.html`](./docs/create-account.html). On a device with Daylist installed, its **Get started in Daylist** link opens the app's account-creation screen. In the app, successful sign-up with email confirmation enabled sends the user to the sign-in screen with their email filled in and a confirmation notice. Tapping the confirmation link on the same device opens `daylist://auth/callback`; Daylist exchanges the one-time PKCE code, saves the session, and opens the task list. If the user confirms on another device, they can return to Daylist and sign in manually.
 
 ## Link the app to your existing EAS project
 
